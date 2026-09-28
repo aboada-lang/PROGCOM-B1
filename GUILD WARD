@@ -1,0 +1,75 @@
+
+# GUILD WARD con diccionarios
+"""
+
+agenda = {}
+
+while True:
+    print("\n--- GUILD WARS ---")
+    print("1. Ver agenda")
+    print("2. Agregar actividad")
+    print("3. Buscar actividad")
+    print("4. Eliminar actividad")
+    print("5. Mostrar cantidad de actividades")
+    print("6. Ver primera actividad")
+    print("7. Ver última actividad")
+    print("8. Ordenar agenda")
+    print("9. Salir")
+
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        if agenda:
+            for fecha, actividad in agenda.items():
+                print(fecha, ":", actividad)
+        else:
+            print("La agenda está vacía")
+
+    elif opcion == "2":
+        fecha = input("Ingrese la fecha: ")
+        actividad = input("Ingrese la actividad: ")
+        agenda[fecha] = actividad
+        print("Actividad agregada")
+
+    elif opcion == "3":
+        fecha = input("Ingrese la fecha a buscar: ")
+        if fecha in agenda:
+            print("Actividad:", agenda[fecha])
+        else:
+            print("No se encontró la actividad")
+
+    elif opcion == "4":
+        fecha = input("Ingrese la fecha a eliminar: ")
+        if fecha in agenda:
+            del agenda[fecha]
+            print("Actividad eliminada")
+        else:
+            print("No se encontró la actividad")
+
+    elif opcion == "5":
+        print("Cantidad de actividades:", len(agenda))
+
+    elif opcion == "6":
+        if agenda:
+            fecha = next(iter(agenda))
+            print(fecha, ":", agenda[fecha])
+        else:
+            print("La agenda está vacía")
+
+    elif opcion == "7":
+        if agenda:
+            fecha = list(agenda)[-1]
+            print(fecha, ":", agenda[fecha])
+        else:
+            print("La agenda está vacía")
+
+    elif opcion == "8":
+        agenda = dict(sorted(agenda.items()))
+        print("Agenda ordenada")
+
+    elif opcion == "9":
+        print("Programa terminado")
+        break
+
+    else:
+        print("Opción no válida")
